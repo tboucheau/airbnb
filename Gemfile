@@ -13,6 +13,8 @@ gem 'bootstrap-sass'
 gem 'devise'
 gem 'devise-i18n'
 gem 'paperclip'
+gem 'toastr-rails' #gère les notifications (class message)
+gem 'rails-i18n'
 
 
 group :development, :test do
