@@ -45,5 +45,4 @@ class RoomsController < ApplicationController
                                     :is_air, :is_closet, :is_shampoo, :is_breakfast, :is_kitchen,
                                     :price, :active)
     end
-    
 end
