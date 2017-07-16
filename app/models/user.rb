@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   validates :fullname, presence:true, length: { maximum: 50 }
-  has_attached_file :avatar, styles: { medium: "300x300^", thumb: "100x100^" }, default_url: "/assets/default_image.jpg"
+  has_attached_file :avatar, styles: { medium: "300x300^", thumb: "100x100^" }
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
   has_many :rooms
 end
