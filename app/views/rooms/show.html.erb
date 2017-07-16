@@ -126,5 +126,34 @@
                     </div>
                 </div>
             </div>
+            
+            <!-- Google maps-->
+            <div class="row">
+                <div class="col-md-12">
+                    <div id="map"></div>
+                </div>
+            </div>
+            <style>
+               #map {
+                height: 400px;
+                width: 100%;
+               }
+            </style>
+            <script>
+              function initMap() {
+                var location = {lat: <%= @room.latitude %>, lng: <%= @room.longitude %>};
+                var map = new google.maps.Map(document.getElementById('map'), {
+                  zoom: 15,
+                  center: location
+                });
+                var marker = new google.maps.Marker({
+                  position: location,
+                  map: map
+                });
+              }
+            </script>
+            <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkE7WmDSy6Pky_ryWHzrb8-3L7Yek9m_4&callback=initMap">
+            </script>
     </div>
 </div>

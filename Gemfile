@@ -17,6 +17,7 @@ gem 'toastr-rails' #gère les notifications (class message)
 gem 'rails-i18n'
 gem 'font-awesome-sass'
 gem 'paperclip-cloudinary' #cloudinary stock les images
+gem 'geocoder'
 
 group :development, :test do
   gem 'sqlite3'
