@@ -8,3 +8,18 @@
     <%= f.submit "Demande de reservation", class: "btn btn-primary" %>
     
 <% end %>
+
+<script>
+    $(function(){
+        $('#reservation_start_date').datepicker({
+            dateFormat: 'dd-mm-yy', 
+            monthNames: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Aout', 'Septembre', 'Octobre', 'Novembre', 'Décembre'], 
+            dayNamesMin: ['D', 'L', 'M', 'M', 'J', 'V', 'S']
+        });
+        $('#reservation_end_date').datepicker({
+            dateFormat: 'dd-mm-yy', 
+            monthNames: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Aout', 'Septembre', 'Octobre', 'Novembre', 'Décembre'], 
+            dayNamesMin: ['D', 'L', 'M', 'M', 'J', 'V', 'S']
+        });
+    });
+</script>

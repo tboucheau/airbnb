@@ -18,6 +18,7 @@ gem 'rails-i18n'
 gem 'font-awesome-sass'
 gem 'paperclip-cloudinary' #cloudinary stock les images
 gem 'geocoder'
+gem 'jquery-ui-rails'
 
 group :development, :test do
   gem 'sqlite3'
