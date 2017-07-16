@@ -53,107 +53,126 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                        <!-- formulaire de réservation -->
-                </div>
             </div>
-            <!-- Description -->
-            <div class="row">
+            <div class="col-md-4">
+                <!-- formulaire de réservation -->
+            </div>
+        </div>            
+        <!-- Description -->
+        <div class="row">
                 <div class="col-md-12">
                     <h2>A propos de ce logement</h2>
                     <p><%= @room.summary %></p>
                 </div>
             </div>
-            <!-- Equipements -->
-            <div class="row">
-                <div class="col-md-2">
+            
+        <!-- Equipements -->
+        <div class="row">
+            <div class="col-md-2">
                     <p>Equipements</p>
                 </div>
-                <div class="col-md-10">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <ul class="equipments">
-                                <li class="<%= 'text-line-through' if !@room.is_wifi %>">Wifi</li>
-                                <li class="<%= 'text-line-through' if !@room.is_tv %>">Télévision</li>
-                                <li class="<%= 'text-line-through' if !@room.is_closet %>">Penderire/Commode</li>
-                                <li class="<%= 'text-line-through' if !@room.is_shampoo %>">Shampoing</li>
-                            </ul>
-                        </div>
-                        <div class="col-md-6">
-                            <ul class="equipments">
-                                <li class="<%= 'text-line-through' if !@room.is_kitchen %>">Cuisine</li>
-                                <li class="<%= 'text-line-through' if !@room.is_breakfast %>">Petit-déjeuner</li>
-                                <li class="<%= 'text-line-through' if !@room.is_heating %>">Chauffage</li>
-                                <li class="<%= 'text-line-through' if !@room.is_air %>">Climatisation</li>
-                            </ul>
-                        </div>
+            <div class="col-md-10">
+                <div class="row">
+                    <div class="col-md-6">
+                        <ul class="equipments">
+                            <li class="<%= 'text-line-through' if !@room.is_wifi %>">Wifi</li>
+                            <li class="<%= 'text-line-through' if !@room.is_tv %>">Télévision</li>
+                            <li class="<%= 'text-line-through' if !@room.is_closet %>">Penderire/Commode</li>
+                            <li class="<%= 'text-line-through' if !@room.is_shampoo %>">Shampoing</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="equipments">
+                            <li class="<%= 'text-line-through' if !@room.is_kitchen %>">Cuisine</li>
+                            <li class="<%= 'text-line-through' if !@room.is_breakfast %>">Petit-déjeuner</li>
+                            <li class="<%= 'text-line-through' if !@room.is_heating %>">Chauffage</li>
+                            <li class="<%= 'text-line-through' if !@room.is_air %>">Climatisation</li>
+                        </ul>
                     </div>
                 </div>
             </div>
-            <!-- Carousel -->
-            <div class="row">
+        </div>
+        <!-- Carousel -->
+        <div class="row">
                 <div class="col-md-10 col-md-offset-1">
                     <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                      <!-- Indicators -->
+                        <!-- Indicators -->
                         <% if @photos %>
                             <% @photos.each do |photo| %>
-                              <ol class="carousel-indicators">
-                                <li data-target="#myCarousel" data-slide-to="<%= photo.id %>" class="active"></li>
-                              </ol>
+                                <ol class="carousel-indicators">
+                                    <li data-target="#myCarousel" data-slide-to="<%= photo.id %>" class="active"></li>
+                                </ol>
                             <% end %>
                         <% end %>
-                    
-                      <!-- Wrapper for slides -->
-                      <div class="carousel-inner" role="listbox">
-                        <% if @photos %>
-                        <% @photos.each do |photo| %>
-                        <div class="item <%= 'active' if photo.id == @photos[0].id %>">
-                          <%= image_tag photo.image.url() %>
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner" role="listbox">
+                            <% if @photos %>
+                                <% @photos.each do |photo| %>
+                                    <div class="item <%= 'active' if photo.id == @photos[0].id %>">
+                                        <%= image_tag photo.image.url() %>
+                                    </div>
+                                <% end %>
+                            <% end %>
                         </div>
-                        <% end %>
-                        <% end %>
-                      </div>
-                    
-                      <!-- Left and right controls -->
-                      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                        <span class="sr-only">Précédent</span>
-                      </a>
-                      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                        <span class="sr-only">Suivant</span>
-                      </a>
+                        <!-- Left and right controls -->
+                        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                            <span class="sr-only">Précédent</span>
+                        </a>
+                        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                            <span class="sr-only">Suivant</span>
+                        </a>
                     </div>
                 </div>
             </div>
             
-            <!-- Google maps-->
-            <div class="row">
-                <div class="col-md-12">
-                    <div id="map"></div>
-                </div>
+        <!-- Google maps-->
+        <div class="row">
+                    <div class="col-md-12">
+                        <div id="map"></div>
+                    </div>
+                
+                <style>
+                    #map {
+                        height: 400px;
+                        width: 100%;
+                    }
+                </style>
+                <script>
+                    function initMap() {
+                        var location = {lat: <%= @room.latitude %>, lng: <%= @room.longitude %>};
+                        var map = new google.maps.Map(document.getElementById('map'), {
+                            zoom: 15,
+                            center: location
+                        });
+                        var marker = new google.maps.Marker({
+                            position: location,
+                            map: map
+                        });
+                    }
+                </script>
+                <script async defer
+                    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkE7WmDSy6Pky_ryWHzrb8-3L7Yek9m_4&callback=initMap">
+                </script>
             </div>
-            <style>
-               #map {
-                height: 400px;
-                width: 100%;
-               }
-            </style>
-            <script>
-              function initMap() {
-                var location = {lat: <%= @room.latitude %>, lng: <%= @room.longitude %>};
-                var map = new google.maps.Map(document.getElementById('map'), {
-                  zoom: 15,
-                  center: location
-                });
-                var marker = new google.maps.Marker({
-                  position: location,
-                  map: map
-                });
-              }
-            </script>
-            <script async defer
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkE7WmDSy6Pky_ryWHzrb8-3L7Yek9m_4&callback=initMap">
-            </script>
+        
+        <!-- Logements à proximité -->
+        <h3>A proximité</h3>
+        <div class="row">
+                <% for room in @room.nearbys(2).limit(3) %>
+                    <div class="col-md-4">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading preview">
+                                        <%= image_tag room.photos[0].image.url(:medium) if room.photos.length > 0 %>
+                                    </div>
+                                    <div class="panel-body">
+                                        <%= link_to room.listing_name, room %><br>
+                                        (à <%= (room.distance*1.6).round(2) %> <%= room.distance > 1 ? "kms": "km" %>)
+                                    </div>
+                                </div>
+                            </div>
+                <% end %>
+            </div>
     </div>
 </div>
