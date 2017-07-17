@@ -1,7 +1,33 @@
 <div id="wrapper">
     <div id="sidebar">
         <div id="widget">
-            
+            <script>
+                function initMap() {
+                    <% if @arrRooms.length > 0 %>
+                        var location = {lat: <%= @arrRooms[0].latitude %>, lng: <%= @arrRooms[0].longitude %>};
+                        var map = new google.maps.Map(document.getElementById('widget'), {
+                            zoom: 13,
+                            center: location
+                        });
+                    <% else %>
+                        var location = {lat: 48.866667, lng: 2.33333};
+                        var map = new google.maps.Map(document.getElementById('widget'), {
+                            zoom: 4,
+                            center: location
+                        });
+                    <% end %>
+                    <% @arrRooms.each do |room| %>
+                        var marker = new google.maps.Marker({
+                            position: {lat: <%= room.latitude %>, lng: <%= room.longitude %>},
+                            map: map,
+                            title: "<%= room.listing_name %>"
+                        });
+                    <% end %>
+                }
+            </script>
+            <script async defer
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkE7WmDSy6Pky_ryWHzrb8-3L7Yek9m_4&callback=initMap">
+            </script>
         </div>
     </div>
     <div id="article">
@@ -144,4 +170,10 @@
             }
         });
     })
+</script>
+
+<script>
+    $(document).ready(function(){
+        $("#sidebar").stick_in_parent({ offset_top: 20 });
+    });
 </script>
