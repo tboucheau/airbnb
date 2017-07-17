@@ -8,4 +8,5 @@ class User < ActiveRecord::Base
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
   has_many :rooms
   has_many :reservations
+  has_many :reviews
 end
