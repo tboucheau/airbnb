@@ -9,10 +9,11 @@ class RoomsController < ApplicationController
     end
     
     def show
+        @photos = @room.photos
         @reviews = @room.reviews
         if current_user
             @booked = Reservation.where("room_id = ? AND user_id = ?", @room.id, current_user.id).present?
-            @hasReview = @reviews.find_by(user_id: current_user.id) if current_user
+            @hasReview = @reviews.find_by(user_id: current_user.id)
         end
     end
     

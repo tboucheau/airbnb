@@ -7,7 +7,7 @@ class ReviewsController < ApplicationController
     end
     
     def destroy
-        @review = Review.find(param[:id])
+        @review = Review.find(params[:id])
         room = @review.room
         @review.destroy
         redirect_to room
@@ -15,7 +15,7 @@ class ReviewsController < ApplicationController
 
     private
     def review_params
-        params.require(:reviews).permit(:comment, :start, :room_id)
+        params.require(:review).permit(:comment, :star, :room_id)
     end
 
 end
