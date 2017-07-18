@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users, :path => '',
                      :path_names => { :sign_in => 'login', :sign_out => 'logout', :edit => 'profil' },
-                     :controllers => { :registrations => 'registrations' }
+                     :controllers => { :registrations => 'registrations',
+                                       :confirmations => 'confirmations' }
   root 'pages#home'
   
   resources :users, only: [ :show ]
