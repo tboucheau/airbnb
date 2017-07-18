@@ -20,6 +20,7 @@ gem 'paperclip-cloudinary' #cloudinary stock les images
 gem 'geocoder'
 gem 'jquery-ui-rails'
 gem 'ransack'
+gem 'rails-timeago'
 
 group :development, :test do
   gem 'sqlite3'

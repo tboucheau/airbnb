@@ -23,6 +23,11 @@
                 <i class="fa fa-home fa-lg"></i> Devenez hôte
               <% end %>
             </li>
+             <li>
+              <%= link_to conversations_path do %>
+                <i class="fa fa-home fa-lg"></i> Messages
+              <% end %>
+            </li>
               <% if !user_signed_in? %>
                 <li><%= link_to 'Inscription', new_user_registration_path %></li>
                 <li><%= link_to 'Connexion', new_user_session_path %></li>
