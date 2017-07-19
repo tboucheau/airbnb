@@ -42,10 +42,6 @@
             <div class="form-group">
               <%= f.text_area :description, rows: 5, col: 25, class: "form-control", placeholder: "Ma description" %>
             </div>
-            
-            <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-              <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-            <% end %>
           
             <div class="form-group">
               <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Nouveau mot de passe (si vous souhaitez le changer)"  %>
@@ -67,10 +63,10 @@
           <% unless current_user.confirmed_at? %>
             <br>
             <br>
-            <% form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+            <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
               <%= f.hidden_field :email, value: current_user.email %>
               <div class="actions">
-                <%= f.submit "Renvoyer un meil de confirmation", class: "btn btn-primary" %>
+                <%= f.submit "Renvoyer un mail de confirmation", class: "btn btn-primary" %>
               </div>
             <% end %>
           <% end %>
