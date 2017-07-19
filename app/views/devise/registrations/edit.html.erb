@@ -68,10 +68,11 @@
             <br>
             <br>
             <% form_for(resouce, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
-            <%= f.hidden_field :email, value: current_user.email %>
-            <div class="actions">
-              <%= f.submit "Renvoyer un meil de confirmation", class: "btn btn-primary" %>
-            </div>
+              <%= f.hidden_field :email, value: current_user.email %>
+              <div class="actions">
+                <%= f.submit "Renvoyer un meil de confirmation", class: "btn btn-primary" %>
+              </div>
+            <% end %>
           <% end %>
           
           <h3>Annuler mon compte</h3>
