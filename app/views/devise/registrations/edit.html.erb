@@ -64,9 +64,19 @@
             </div>
           <% end %>
           
+          <% unless current_user.confirmed_at? %>
+            <br>
+            <br>
+            <% form_for(resouce, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+            <%= f.hidden_field :email, value: current_user.email %>
+            <div class="actions">
+              <%= f.submit "Renvoyer un meil de confirmation", class: "btn btn-primary" %>
+            </div>
+          <% end %>
+          
           <h3>Annuler mon compte</h3>
           
-          <p>Unhappy? <%= button_to "Annuler mon compte", registration_path(resource_name), data: { confirm: "Etes-vous sur ?" }, method: :delete %></p>
+          <p>Pas content ? <%= button_to "Annuler mon compte", registration_path(resource_name), data: { confirm: "Etes-vous sur ?" }, method: :delete %></p>
           
           <%= link_to "Retour", :back %>
         </div>
